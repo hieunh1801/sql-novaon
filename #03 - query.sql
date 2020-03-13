@@ -1,8 +1,9 @@
 -- query 1:
 with product_selled as (
 	select od.product_id, sum(od.quantity) as total_quantity
-	from order_detail od
-	group by od.product_id
+    from order_detail od inner join orders o on o.orders_id = od.orders_id 
+    where o.order_date < now()
+    group by od.product_id
 )
 select p.*, ps.total_quantity
 from product p inner join product_selled ps 
