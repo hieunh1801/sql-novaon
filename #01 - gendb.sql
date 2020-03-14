@@ -13,7 +13,8 @@ create table orders(
 	orders_id serial primary key,
 	order_date date,
 	total money,
-	customer_id serial
+	customer_id serial,
+	description text
 )
 
 create table order_detail(
@@ -21,5 +22,6 @@ create table order_detail(
 	product_id serial,
 	orders_id serial,
 	quantity int,
-	price money
+	price money,
+	description text
 )
